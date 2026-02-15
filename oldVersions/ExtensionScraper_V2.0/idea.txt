@@ -1,0 +1,2 @@
+New Idea, develop a new extension using code from Brave Browser's Block Elements feature
+to grab the XPath (or otherwise) to select elements via an extension.
