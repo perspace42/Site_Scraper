@@ -1,0 +1,56 @@
+#This is the example TOML file for the Site Scraper
+
+#site contains the base url for all of its elements (address is initial url, may change after initial scrape)
+#multiple site entries are permitted
+[site]
+[[site.url]]
+name = "optional"
+address = "imdb.com/chart/top"
+
+#click represents a <button> <a> tag or other clickable element
+[[site.click]]
+name = "buttonName"
+xpath = "html/body/div/button"
+desc = "this button does something"
+
+#list represents an ordered collection of items
+[[site.list]]
+name = "listName"
+description = "This is a list of something"
+xpath = "html/body/div/div/"
+
+[[site.list.items]]
+type = 'image'
+src = "https://icons.com/image.png"
+xpath = "html/body/div/div/"
+
+[[site.list.items]]
+type = 'text'
+xpath = "html/body/div/div/"
+
+[[site.list.items]]
+type = 'url'
+xpath = 'html/body/div/div/a'
+
+#individual items
+
+#text item
+[[site.text]]
+name = "textName"
+xpath = "html/body/div/div/"
+
+#image item
+[[site.image]]
+name = "imageName"
+xpath = "html/body/div/div/"
+
+#url item (clickable element that changes the url of the site)
+[[site.url]]
+name = "urlName"
+address = "https://example.com/page"
+xpath = "html/body/div/div/"
+
+#input item (clickable element that allows for user input)
+[[site.input]]
+name = "inputName"
+xpath = "html/body/div/div/"
