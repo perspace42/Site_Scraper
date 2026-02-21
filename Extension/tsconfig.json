@@ -1,0 +1,6 @@
+{
+    // TypeScript configuration for the WXT extension project.
+    // WXT generates its own tsconfig in .wxt/ — this file extends it
+    // and adds React JSX support for our .tsx components.
+    "extends": "./.wxt/tsconfig.json"
+}

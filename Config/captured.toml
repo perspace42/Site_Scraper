@@ -1,0 +1,61 @@
+#
+# captured.toml — Reference Template
+#
+# This file is a reference showing what the downloaded output from the
+# Site Scraper Logger extension will look like.
+#
+# The actual file is generated dynamically by the browser extension using
+# the @iarna/toml library (MIT License) and downloaded as "captured.toml"
+# when you click the "Download TOML" button in the sidebar.
+#
+# Format is identical to Config/example.toml so it can be dropped directly
+# into Site_Scraper's configuration pipeline.
+#
+# Selector fields (xpath, idpath, csspath) for each element:
+#   - All three are written when available
+#   - idpath is empty ("") when the element has no HTML id attribute
+#   - At least one of the three is always present
+#
+
+[site]
+
+# The page that was being scraped when elements were logged.
+[[site.url]]
+name = "captured_page"
+address = "https://example.com"
+
+# ── Clickable elements ────────────────────────────────────────────────────────
+
+[[site.click]]
+name = "button: Submit"
+xpath = "/html/body/form/button"
+idpath = "#submit-btn"
+csspath = "form > button#submit-btn"
+
+# ── Text elements ─────────────────────────────────────────────────────────────
+
+[[site.text]]
+name = "h1: Welcome to Example Domain"
+xpath = "/html/body/div/h1"
+idpath = ""
+csspath = "body > div > h1"
+
+# ── URL / anchor elements ─────────────────────────────────────────────────────
+
+[[site.url]]
+name = "a: More information..."
+xpath = "/html/body/div/p/a"
+idpath = ""
+csspath = "body > div > p > a"
+
+# ── Image elements ────────────────────────────────────────────────────────────
+
+# (no images logged in this example)
+
+# ── Input elements ────────────────────────────────────────────────────────────
+
+[[site.input]]
+name = "input:"
+xpath = "/html/body/form/input"
+idpath = "#search"
+csspath = "form > input#search"
