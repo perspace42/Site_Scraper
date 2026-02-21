@@ -1,5 +1,15 @@
 #This is the example TOML file for the Site Scraper
 
+#Variable List
+#name = "optional" - name of the element
+#address = "optional" - url of the element
+#desc = "optional" - description of the element
+#type = "required" - type of the element (url, text, image, input, click, list)
+#NOTE: At least one of xpath, idpath, or csspath must be present
+#xpath = "optional" - xpath of the element (Either relative or absolute)
+#idpath = "optional" - idpath of the element
+#csspath = "optional" - csspath of the element
+
 #site contains the base url for all of its elements (address is initial url, may change after initial scrape)
 #multiple site entries are permitted
 [site]
@@ -11,6 +21,8 @@ address = "imdb.com/chart/top"
 [[site.click]]
 name = "buttonName"
 xpath = "html/body/div/button"
+idpath = "#buttonId"
+csspath = ".buttonClass"
 desc = "this button does something"
 
 #list represents an ordered collection of items
@@ -18,19 +30,27 @@ desc = "this button does something"
 name = "listName"
 description = "This is a list of something"
 xpath = "html/body/div/div/"
+idpath = "#listId"
+csspath = ".listClass"
 
 [[site.list.items]]
 type = 'image'
 src = "https://icons.com/image.png"
 xpath = "html/body/div/div/"
+idpath = "#imageId"
+csspath = ".imageClass"
 
 [[site.list.items]]
 type = 'text'
 xpath = "html/body/div/div/"
+idpath = "#textId"
+csspath = ".textClass"
 
 [[site.list.items]]
 type = 'url'
 xpath = 'html/body/div/div/a'
+idpath = "#urlId"
+csspath = ".urlClass"
 
 #individual items
 
@@ -38,19 +58,27 @@ xpath = 'html/body/div/div/a'
 [[site.text]]
 name = "textName"
 xpath = "html/body/div/div/"
+idpath = "#textId"
+csspath = ".textClass"
 
 #image item
 [[site.image]]
 name = "imageName"
 xpath = "html/body/div/div/"
+idpath = "#imageId"
+csspath = ".imageClass"
 
 #url item (clickable element that changes the url of the site)
 [[site.url]]
 name = "urlName"
 address = "https://example.com/page"
 xpath = "html/body/div/div/"
+idpath = "#urlId"
+csspath = ".urlClass"
 
 #input item (clickable element that allows for user input)
 [[site.input]]
 name = "inputName"
 xpath = "html/body/div/div/"
+idpath = "#inputId"
+csspath = ".inputClass"
